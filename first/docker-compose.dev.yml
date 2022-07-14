@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+ app:
+  container_name: first
+  build:
+   context: .
+  ports:
+  - 5000:5000
+  volumes:
+  - ./:/app
+
+ mysqldb:
+  image: mysql:5.7
+  container_name: mysqldb
+  ports:
+  - 3307:3306
+  environment:
+  - MYSQL_ROOT_PASSWORD=secret
+  volumes:
+  - /Users/peddikrishna/Documents/prac/data_first:/var/lib/mysql
+  - mysql_config:/etc/mysql
+
+volumes:
+  mysql_config:
