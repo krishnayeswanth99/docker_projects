@@ -47,7 +47,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./first/Dockerfile
+          working-directory: ./first/app
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
 
